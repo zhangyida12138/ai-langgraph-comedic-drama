@@ -1,0 +1,21 @@
+[project]
+name = "orchestrator"
+version = "0.1.0"
+description = "漫剧生成流程编排：LangGraph StateGraph，支持检查点与 HITL"
+requires-python = ">=3.11"
+dependencies = [
+    "cdrama-common",
+    "fastapi>=0.115",
+    "langgraph>=0.6",
+    "uvicorn[standard]>=0.32",
+]
+
+[tool.uv.sources]
+cdrama-common = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/orchestrator"]

@@ -1,0 +1,33 @@
+[project]
+name = "ai-langgraph-comedic-drama"
+version = "0.1.0"
+description = "漫剧生成平台 monorepo：React 前端 + FastAPI/LangGraph 微服务"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv]
+# 根目录不放 Python 源码，只做 uv workspace 的聚合根
+package = false
+
+[tool.uv.workspace]
+# 显式列出已初始化的成员：services/* 下的其余目录只有 README，尚无依赖清单。
+# 新增服务时在此追加一行（README「开发约定」要求同步更新目录职责表）。
+members = ["packages/python-common", "services/gateway", "services/orchestrator"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28",
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

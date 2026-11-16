@@ -1,0 +1,15 @@
+{
+  "name": "ai-langgraph-comedic-drama",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@12.8.1",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @cdrama/web dev",
+    "build": "pnpm --filter @cdrama/web build",
+    "preview": "pnpm --filter @cdrama/web preview",
+    "typecheck": "pnpm --filter @cdrama/web typecheck"
+  }
+}
